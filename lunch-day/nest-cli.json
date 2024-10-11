@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/lunch-day/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/lunch-day/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/lunch-day",
+  "projects": {
+    "lunch-day": {
+      "type": "application",
+      "root": "apps/lunch-day",
+      "entryFile": "main",
+      "sourceRoot": "apps/lunch-day/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lunch-day/tsconfig.app.json"
+      }
+    },
+    "order": {
+      "type": "application",
+      "root": "apps/order",
+      "entryFile": "main",
+      "sourceRoot": "apps/order/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/order/tsconfig.app.json"
+      }
+    }
   }
 }
