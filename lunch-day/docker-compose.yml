@@ -1,0 +1,21 @@
+version: '3'
+services:
+  buys:
+    build: ./apps/buys
+    container_name: buys
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+
+  order:
+    build: ./apps/order
+    container_name: order
+    ports:
+      - "3001:3001"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
